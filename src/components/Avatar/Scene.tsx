@@ -1,12 +1,12 @@
 import { ContactShadows, OrbitControls, Sky } from "@react-three/drei"
 import { useControls } from "leva"
-import { Avatar } from "./Avatar"
+import SelfModel from "./SelfModel"
 
 const Scene = () => {
   const { animation } = useControls({
     animation: {
       value: "Typing",
-      options: ["Typing", "Falling"]
+      options: ["Typing", "Falling", "Backflip"]
     },
     boxPosition: {
       x: 0,
@@ -38,8 +38,8 @@ const Scene = () => {
           resolution={256}
           color="#000000"
         />
-        <group rotation-x={-Math.PI / 2}>
-          <Avatar animation={animation} />
+        <group>
+          <SelfModel animation={animation} />
         </group>
         {animation === "Typing" && (
           <mesh scale={[0.8, 0.5, 0.8]} position-y={0.25}>
